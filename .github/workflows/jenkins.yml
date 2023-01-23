@@ -5,7 +5,7 @@ on:
   push:
     branches: 
       - main
-      - develop
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,4 +20,4 @@ jobs:
         jenkins-url: ${{ JENKINS_URL }}
         jenkins-user: ${{ JENKINS_USERNAME }}
         jenkins-pass: ${{ JENKINS_PASSWORD }}
-        command: build job/statuschecks -p git-branch=${{ github.ref}}
+        command: build job/statuschecks -p git-branch=${{ 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 }}
