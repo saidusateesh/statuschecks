@@ -1,23 +1,21 @@
 name: Jenkins Integration
-
+ 
 on:
-  pull_request:
   push:
-    branches: 
+    branches:
       - main
-      - main
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+ 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Trigger Jenkins
-      uses: actions/jenkins-cli-action@v1
+ 
+    - name: Invoke Jenkins Job
+      uses: jenkins-actions/jenkins-cli@v0.5.0
       with:
         jenkins-url: ${{ secrets.JENKINS_URL }}
-        jenkins-user: ${{ secrets.JENKINS_USERNAME }}
-        jenkins-pass: ${{ secrets.JENKINS_PASSWORD }}
-        command: build job/statuschecks -p git-branch=${{ main }}
+        job-name: ${{ secrets.status }}
+        arguments: '-v'
