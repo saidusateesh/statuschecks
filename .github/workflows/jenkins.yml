@@ -16,6 +16,6 @@ jobs:
     - name: Invoke Jenkins Job
       uses: jenkins-actions/jenkins-cli@v0.5.0
       with:
-        jenkins-url: ${{ secrets.JENKINS_URL }}
-        job-name: ${{ secrets.status }}
+        jenkins-url: ${{ secrets.JENKINSURL }}
+        job-name: ${{ secrets.git integration }}
         arguments: '-v'
