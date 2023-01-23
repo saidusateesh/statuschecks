@@ -20,4 +20,4 @@ jobs:
         jenkins-url: ${{ secrets.JENKINS_URL }}
         jenkins-user: ${{ secrets.JENKINS_USERNAME }}
         jenkins-pass: ${{ secrets.JENKINS_PASSWORD }}
-        command: build job/statuschecks -p git-branch=${{ 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 }}
+        command: build job/statuschecks -p git-branch=${{ main }}
