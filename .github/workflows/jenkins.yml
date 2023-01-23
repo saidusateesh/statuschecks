@@ -1,0 +1,23 @@
+name: Jenkins Integration
+
+on:
+  pull_request:
+  push:
+    branches: 
+      - master
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Trigger Jenkins
+      uses: actions/jenkins-cli-action@v1
+      with:
+        jenkins-url: ${{ JENKINS_URL }}
+        jenkins-user: ${{ JENKINS_USERNAME }}
+        jenkins-pass: ${{ JENKINS_PASSWORD }}
+        command: build job/statuschecks -p git-branch=${{ github.ref}}
