@@ -3,19 +3,29 @@ name: Jenkins Integration
 on:
   push:
     branches:
-      - main
- 
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
- 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
- 
-    - name: Invoke Jenkins Job
-      uses: jenkins-actions/jenkins-cli@v0.5.0
-      with:
-        jenkins-url: ${{ secrets.JENKINSURL }}
-        job-name: ${{ secrets.git integration }}
-        arguments: '-v'
+    - name: Build
+      run: |
+        # build commands
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Test
+      run: |
+        # test commands
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Deploy
+      run: |
+        # deploy commands
