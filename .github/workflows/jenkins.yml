@@ -29,9 +29,6 @@ jobs:
     - name: Deploy
       run: |
         # deploy commands
-        - name: Checkout code
-          uses: actions/checkout@v2
-          with:
-          token: ${{ secrets.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 }}
+      
 
   
